@@ -3,6 +3,7 @@ import { config } from 'dotenv';
 
 // Drizzle ORM
 import { db } from "@/db";
+import { schema } from '@/db/schema';
 
 // Better Auth
 import { betterAuth } from "better-auth";
@@ -13,6 +14,11 @@ config({ path: '.env' });
 export const auth = betterAuth({
     database: drizzleAdapter(db, {
         provider: "pg",
+        schema: {
+            ...schema,
+            user: schema.users,
+        },
+        usePlural: true
     }),
     emailAndPassword: {  
         enabled: true
