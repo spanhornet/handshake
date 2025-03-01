@@ -89,7 +89,9 @@ export function SignUpForm({
                             name="firstName"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>First name</FormLabel>
+                                    <FormLabel>
+                                        First name <span className="text-destructive">*</span>
+                                    </FormLabel>
                                     <FormControl>
                                         <Input placeholder="John" {...field} />
                                     </FormControl>
@@ -103,7 +105,9 @@ export function SignUpForm({
                             name="lastName"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Last name</FormLabel>
+                                    <FormLabel>
+                                        Last name <span className="text-destructive">*</span>
+                                    </FormLabel>
                                     <FormControl>
                                         <Input placeholder="Doe" {...field} />
                                     </FormControl>
@@ -118,7 +122,9 @@ export function SignUpForm({
                         name="email"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Email address</FormLabel>
+                            <FormLabel>
+                                Email address <span className="text-destructive">*</span>
+                            </FormLabel>
                             <FormControl>
                                 <Input placeholder="johndoe@example.com" {...field} />
                             </FormControl>
@@ -132,7 +138,9 @@ export function SignUpForm({
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Password</FormLabel>
+                            <FormLabel>
+                                Password <span className="text-destructive">*</span>
+                            </FormLabel>
                             <FormControl>
                                 <div className="flex items-center space-x-2">
                                     <Input

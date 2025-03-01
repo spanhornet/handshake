@@ -84,7 +84,9 @@ export function SignInForm({
                         name="email"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Email address</FormLabel>
+                            <FormLabel>
+                                Email address <span className="text-destructive">*</span>
+                            </FormLabel>
                             <FormControl>
                                 <Input placeholder="johndoe@example.com" {...field} />
                             </FormControl>
@@ -98,7 +100,9 @@ export function SignInForm({
                         name="password"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Password</FormLabel>
+                            <FormLabel>
+                                Password <span className="text-destructive">*</span>
+                            </FormLabel>
                             <FormControl>
                                 <div className="flex items-center space-x-2">
                                     <Input
