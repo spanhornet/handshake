@@ -24,10 +24,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input"
 
+import PhoneInputWrapper from "@/components/ui/phone-input";
+
 const formSchema = z.object({
     firstName: z.string().min(1, "First name is required"),
     lastName: z.string().min(1, "Last name is required"),
     email: z.string().email("Invalid email address"),
+    phone: z.string().min(1, "Phone number is invalid"),
     password: z
         .string()
         .min(8, "Password must be at least 8 characters long")
@@ -38,7 +41,7 @@ const formSchema = z.object({
 });
 
 // Lucide Icons
-import { LoaderCircle } from 'lucide-react';
+import { LoaderCircle, Phone } from 'lucide-react';
 
 // Radix UI Icons
 import { EyeOpenIcon, EyeNoneIcon } from "@radix-ui/react-icons";
@@ -127,6 +130,22 @@ export function SignUpForm({
                             </FormLabel>
                             <FormControl>
                                 <Input placeholder="johndoe@example.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    {/* `phone` field */}
+                    <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel>
+                                Phone <span className="text-destructive">*</span>
+                            </FormLabel>
+                            <FormControl>
+                                <PhoneInputWrapper />
                             </FormControl>
                             <FormMessage />
                             </FormItem>
