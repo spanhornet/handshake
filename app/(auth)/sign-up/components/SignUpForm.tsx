@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input"
 
-import PhoneInputWrapper from "@/components/ui/phone-input";
+import { PhoneInputWrapper } from "@/components/ui/phone-input";
 
 const formSchema = z.object({
     firstName: z.string().min(1, "First name is required"),
@@ -66,6 +66,7 @@ export function SignUpForm({
             firstName: "",
             lastName: "",
             email: "",
+            phone: "",
             password: "",
         },
     });
@@ -142,15 +143,15 @@ export function SignUpForm({
                         render={({ field }) => (
                             <FormItem>
                             <FormLabel>
-                                Phone <span className="text-destructive">*</span>
+                                Phone number <span className="text-destructive">*</span>
                             </FormLabel>
                             <FormControl>
-                                <PhoneInputWrapper />
+                                <PhoneInputWrapper {...field}/>
                             </FormControl>
                             <FormMessage />
                             </FormItem>
                         )}
-                    />
+                        />
                     {/* `password` field */}
                     <FormField
                         control={form.control}
